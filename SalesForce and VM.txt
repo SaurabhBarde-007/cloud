@@ -1,0 +1,28 @@
+*************Salesforce*********************
+
+1) setup > object Manager > create Custom object > field and relationship 
+
+2) setup > tab 
+
+3) setup > App Manager > lighting app > add custom objets > system Administrator > search for our created app
+
+4) add new entries
+
+
+**************VM*************************
+
+1) Make NAT network before creating vm 
+
+2) ifconfig ///to get ip 
+
+3) touch file.txt ////create a file in vm1
+
+4) nano file.txt  //// write content
+
+5) ctrl+o  enter ctrl+x  //// to save file
+
+6) cat file.txt ///// to display content of the file
+
+7) scp file.txt vagrant@10.0.2.5:/home/vagrant
+
+8) ls //// get file in vm2
