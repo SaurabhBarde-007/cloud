@@ -1,0 +1,123 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    background-color: rgb(221, 221, 221);
+    border-radius: 5px;
+    height: 500px;
+    width: 30%;
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 10%;
+}
+
+.title {
+    align-items: center;
+    justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+    padding-left: 80px;
+}
+
+.container h2 {
+    border: 2px solid rgb(125, 122, 122);
+    border-radius: 10px;
+}
+
+input {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    height: 30px;
+    width: 250px;
+    padding-left: 5px
+}
+
+.btn {
+    display: flex;
+    flex-direction: row;
+}
+
+.button {
+    width: 200px;
+    margin-left: 10px;
+
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10%;
+}
+
+button {
+    width: 250px;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.notesContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputDiv {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+}
+
+.textarea {
+    width: 500px;
+    background-color: #ccc7c7;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+#notesButton {
+    width: 300px;
+    height: 40px;
+    background-color: rgb(7, 183, 7);
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+#notesButton:hover {
+    background-color: rgb(25, 234, 25);
+    cursor: pointer;
+}

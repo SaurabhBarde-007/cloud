@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-storage.js"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <script type="text/javascript">
+
+    </script>
+</head>
+
+<body>
+    <script type="text/javascript">
+
+       const firebaseConfig = {
+            apiKey: "AIzaSyDXv0JISch5frSuDyhqfFR4VPbHfj1BeZU",
+            authDomain: "thunder-52e6c.firebaseapp.com",
+            projectId: "thunder-52e6c",
+            storageBucket: "thunder-52e6c.appspot.com",
+            messagingSenderId: "139753793156",
+            appId: "1:139753793156:web:36c26042b742f6d08804d1",
+            measurementId: "G-17XB5TVFDG"
+        };
+        var app = firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore(app);
+
+        function emailLogin() {
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            firebase.auth().signInWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    alert("User loggedin successfully!!");
+                    window.location.href = "/login.html";
+                    console.log('Logged in:', userCredential.user);
+                })
+                .catch((error) => {
+                    alert("User doesn't exists!!");
+                    console.error('Login error:', error.message);
+                });
+        }
+
+        function googleLogin() {
+            const googleAuth = new firebase.auth.GoogleAuthProvider();
+            firebase.auth().signInWithPopup(googleAuth)
+                .then((userCredential) => {
+                    alert("User loggedin successfully!!");
+                    window.location.href = "/login.html"
+                    console.log('Logged in:', userCredential.user);
+                })
+                .catch((error) => {
+                    alert("User doesn't exists!!");
+                    console.error('Login error:', error.message);
+                });
+        }
+
+
+        function signup() {
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            firebase.auth().createUserWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    alert("User registered successfully!!");
+                    console.log('Signed up:', userCredential.user);
+                })
+                .catch((error) => {
+                    console.error('Signup error:', error.message);
+                });
+        }
+
+        function logout() {
+            firebase.auth().signOut()
+                .then(() => {
+                    alert("Logged out successfully!!");
+                    console.log('Logged out');
+                })
+                .catch((error) => {
+                    console.error('Logout error:', error.message);
+                });
+        }
+
+        function addNote() {
+            const note = document.getElementById("noteInput").value;
+            var noteCollection = db.collection('Saved Notes');
+            document.getElementById("notesButton").addEventListener('click', e => {
+                e.preventDefault();
+                noteCollection.doc("Notes").set({
+                    Note: note,
+                    Date_added: Date.now()
+                })
+                    .then(() => { alert('Note successfully added!!'); })
+                    .catch(error => { console.error(error.message) });
+            });
+        }
+    </script>
+    <div class="inputDiv">
+        <textarea class="textarea" name="" id="noteInput" cols="50" rows="20" placeholder="Type Here"></textarea>
+        <button id="notesButton" onclick="addNote()">Add Your Note</button>
+    </div>
+    <div>
+        <p id="note"></p>
+        <p id="date"></p>
+    </div>
+</body>
+
+</html>
